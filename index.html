@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone hunter</title>
+    <!-- tailwind and daisy ui cdn link-->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class=" mx-11 lg:mx-24">
+    <header>
+        <!-- <h1 class="text-6xl">Phone hunter</h1> -->
+    </header>
+    <main class="">
+
+        <!-- search field section -->
+        <section class="my-5 text-center">
+            <h1 class="text-5xl font-semibold my-4">Search your phone</h1>
+            <input id="text-field" type="text" placeholder="Search your phone"
+                class="input input-bordered w-full max-w-xs" />
+            <button onclick="searchPhone()" class="btn btn-accent">Search</button>
+        </section>
+
+        <!-- search result section -->
+        <section>
+            <!-- loading spinner div -->
+            <div id="loading-spinner" class="text-center my-32 hidden">
+                <span class="loading loading-spinner loading-lg"></span>
+            </div>
+
+            <!-- all phone cards div -->
+            <div id="phone-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            </div>
+
+            <!-- Show All btn div -->
+            <div id="show-all-container" class="hidden text-center my-8">
+                <button onclick="handleShowAllBtn()" class="btn btn-accent">Show All</button>
+            </div>
+
+            <!-- display below code when api is collect wrong information -->
+            <div id="result-not-found" class="hidden">
+                <h1 class="text-6xl">Result is not available</h1>
+            </div>
+        </section>
+
+        <!-- Show details modal section -->
+            <!-- Open the modal using ID.showModal() method -->
+            <dialog id="show_details_modal" class="modal modal-bottom sm:modal-middle">
+                <div class="modal-box">
+                    <h3 class="text-lg font-bold">Hello!</h3>
+                    <p class="py-4">Press ESC key or click the button below to close</p>
+                    <div class="modal-action">
+                        <form method="dialog">
+                            <!-- if there is a button in form, it will close the modal -->
+                            <button class="btn">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
+
+    </main>
+    <footer>
+
+    </footer>
+    <!-- scripts -->
+    <script src="js/phone.js"></script>
+</body>
+
+</html>
