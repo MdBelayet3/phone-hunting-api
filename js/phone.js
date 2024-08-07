@@ -93,9 +93,34 @@ const displayShowDetails = (phone) => {
     console.log(phone);
     const showDetailsModalContainer = document.getElementById('show-details-modal-container');
     showDetailsModalContainer.innerHTML = `
-    `
+        
+        <!-- Open the modal using ID.showModal() method -->
+        <dialog id="show_details_modal" class="modal modal-bottom sm:modal-middle">
+            <div class="modal-box">
+                <div class="card bg-base-100 grid gap-1">
+                    <figure class="">
+                        <img src="${phone?.image}" alt="${phone?.name}"
+                            class="rounded-xl" />
+                    </figure>
+                    <h2 class="text-3xl text-left">${phone?.name}</h2>
+                    <p class="text-base"><span class="text-xl">Storage : </span>${phone?.mainFeatures?.storage}</p>
+                    <p class="text-base"><span class="text-xl">Display Size : </span>${phone?.mainFeatures?.displaySize}</p>
+                    <p class="text-base"><span class="text-xl">Chipset : </span>${phone?.mainFeatures?.chipSet}</p>
+                    <p class="text-base"><span class="text-xl">Memory : </span>${phone.mainFeatures.memory}</p>
+                    <p class="text-base"><span class="text-xl">Slug : </span>${phone?.slug}</p>
+                    <p class="text-base"><span class="text-xl">Release data : </span>${phone?.releaseDate}</p>
+                    <p class="text-base"><span class="text-xl">Brand : </span>${phone?.brand}</p>
+                    <p class="text-base"><span class="text-xl">GPS : </span>${phone?.others?.GPS || 'none'}</p>
+                </div>
+                <div class="modal-action">
+                    <form method="dialog">
+                        <!-- if there is a button in form, it will close the modal -->
+                        <button class="btn">Close</button>
+                    </form>
+                </div>
+            </div>
+        </dialog>
+     `
     // show detail modal
     show_details_modal.showModal()
 }
-
-loadPhone()
